@@ -1,0 +1,10 @@
+:HL["/_next/static/css/dc24a1f3592d4587.css","style"]
+:HL["/assets/cyfamod-sms-mark-updated.png","image"]
+:HL["/assets/staff-app-icon.png","image"]
+:HL["/assets/staff-students.png","image"]
+:HL["/assets/student-app-icon.png","image"]
+:HL["/assets/student-results.png","image"]
+:HL["/assets/playstore-staff-proof.png","image"]
+:HL["/assets/playstore-student-proof.png","image"]
+:HL["/assets/staff-results.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4180,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"6uUMsNc73sM7HRijENTi8"}
