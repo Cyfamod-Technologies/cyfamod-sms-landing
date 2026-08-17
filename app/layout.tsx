@@ -1,5 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { ScrollToTop } from '@/components/scroll-to-top'
+import { WhatsAppFloating } from '@/components/whatsapp-floating'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -21,6 +23,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className="bg-[#0d1b3d]">
       <body className="antialiased">
         {children}
+        <WhatsAppFloating />
+        <ScrollToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
