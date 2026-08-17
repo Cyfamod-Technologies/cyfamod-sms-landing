@@ -1,4 +1,4 @@
-import { ArrowUpRight, Briefcase, CalendarDays, ClipboardCheck, Database, GraduationCap, LayoutDashboard, Search, Settings, Share2, ShieldCheck, UserRound, UsersRound } from 'lucide-react'
+import { ArrowUpRight, Briefcase, CalendarDays, ClipboardCheck, Database, GraduationCap, LayoutDashboard, Search, Settings, Share2, ShieldCheck, Star, UserRound, UsersRound } from 'lucide-react'
 import { SiteFooter, SiteHeader } from '@/components/site-shell'
 import { RotatingHeadline } from '@/components/rotating-headline'
 import { Reveal } from '@/components/reveal'
@@ -13,6 +13,45 @@ const assets = {
   playstoreStaff: '/assets/playstore-staff-proof.png',
   playstoreStudent: '/assets/playstore-student-proof.png',
 }
+
+const testimonials = [
+  {
+    name: 'Dr. Adebayo Oluwaseun',
+    role: 'School Principal',
+    avatar: '/assets/testimonials/dr-adebayo.png',
+    quote: 'This platform revolutionized our school administration. From fee management to results processing, everything is streamlined. The multi-tenant feature handles all our branches perfectly.',
+  },
+  {
+    name: 'Mrs. Ngozi Adekunle',
+    role: 'Vice Principal (Academics)',
+    avatar: '/assets/testimonials/mrs-ngozi.png',
+    quote: 'The results management module is exceptional. Auto-calculated positions and comprehensive analytics save us countless hours. Parents appreciate the transparency and real-time access.',
+  },
+  {
+    name: 'Emeka Nwosu',
+    role: 'Mathematics & Science Teacher',
+    avatar: '/assets/testimonials/emeka-nwosu.png',
+    quote: 'As a teacher, recording attendance and grades is now effortless. The system is intuitive and the role-based access keeps student data secure while giving me the tools I need.',
+  },
+  {
+    name: 'Chidi Okafor',
+    role: 'Senior Physics Teacher',
+    avatar: '/assets/testimonials/chidi-okafor.png',
+    quote: 'Preparing computer-based tests and managing student assessments used to take days. With Cyfamod CBT, I publish quizzes in minutes and get instant analytics.',
+  },
+  {
+    name: 'Mrs. Funmi Balogun',
+    role: 'Parent & PTA Member',
+    avatar: '/assets/testimonials/parent-1.png',
+    quote: "Checking my children's terminal results, fee receipts, and attendance updates on the parent portal is seamless. It brings real peace of mind.",
+  },
+  {
+    name: 'Tobi Adeyemi',
+    role: 'SS3 Student',
+    avatar: '/assets/testimonials/student-2.png',
+    quote: 'Taking practice CBT exams on the Cyfamod student app helped me prepare confidently for my final exams. The interface is clear and very easy to navigate.',
+  },
+]
 
 const Arrow = () => <ArrowUpRight aria-hidden="true" size={16} />
 const iconMap = { administration: Database, attendance: UsersRound, results: ClipboardCheck, assessments: GraduationCap }
@@ -31,9 +70,45 @@ function DashboardPreview() { return <div className="dashboard-preview" aria-lab
 function Hero() { return <section className="hero section" id="top"><div className="hero-copy"><div className="hero-top"><p className="eyebrow">CYFAMOD SMS <span>•</span> SCHOOL MANAGEMENT SYSTEM</p><h1>Control school operations<br /><em className="gradient-text">from one dashboard.</em></h1><p className="hero-rotator"><RotatingHeadline /></p></div><div className="hero-bottom"><div className="hero-actions"><Button>Book a product demo</Button><a className="text-link" href="#platform">View platform capabilities <Arrow /></a></div><div className="hero-proof"><strong>Admin dashboard first. Mobile apps connected.</strong><span>A complete school management system for administrators, staff, students, and parents.</span></div></div></div><div className="hero-visual"><DashboardPreview /></div></section> }
 function WorkflowCard({ workflow }: { workflow: Workflow }) { const Icon = iconMap[workflow.key]; return <article className="workflow-card"><span className="workflow-icon"><Icon size={44} strokeWidth={1.4} /></span><span className="workflow-label">{workflow.key}</span><h3>{workflow.title}</h3><p className="workflow-description">{workflow.description}</p><ul>{workflow.rows.map(row => <li key={row}><ClipboardCheck size={15} />{row}</li>)}</ul><a href="/contact">Learn more <Arrow /></a></article> }
 function Platform() { return <section className="platform section" id="platform"><div className="section-heading"><div><div className="section-kicker">THE CYFAMOD SMS PLATFORM</div><h2>Run your school with clarity. <em>Everything in one place.</em></h2></div></div><div className="workflow-grid">{workflows.map(workflow => <WorkflowCard key={workflow.key} workflow={workflow} />)}</div><div className="cbt-feature"><div><span className="section-kicker">FOR MODERN ASSESSMENT</span><h3>Computer Based Testing, without the complexity.</h3><p>Load assessments, manage candidate context, and keep academic records moving in one trusted workflow.</p><a className="button button-secondary" href="/contact">Talk to us about CBT <Arrow /></a></div><div className="cbt-screen"><img src={assets.staffResults} alt="Cyfamod staff result entry screen for selecting a class and subject" /></div></div></section> }
-function Apps() { return <section className="apps section" id="apps"><div className="apps-heading"><div><div className="section-kicker">LIVE ON GOOGLE PLAY</div><h2>School tools that<br /><em>move with you.</em></h2></div></div><div className="app-showcase"><article className="app-card app-card-staff"><div className="app-meta"><img src={assets.staffIcon} alt="Cyfamod SMS Staff app logo" /><div><span>CYFAMOD-SMS</span><h3>Staff app</h3></div></div><p>Classes, students, and activity in one staff app.</p><img className="app-screen" src={assets.staffStudents} alt="Cyfamod staff app student search and filter screen" /></article><article className="app-card app-card-student"><div className="app-meta"><img src={assets.studentIcon} alt="Cyfamod SMS Student app logo" /><div><span>CYFAMOD-SMS</span><h3>Student app</h3></div></div><p>School information, results, and updates in one app.</p><img className="app-screen" src={assets.studentResults} alt="Cyfamod student app results download screen" /></article></div><div className="play-store-evidence"><article><div className="play-store-proof-heading"><div><strong>Cyfamod SMS Staff</strong><span>Google Play listing evidence</span></div></div><img className="play-store-proof-image" src={assets.playstoreStaff} alt="Google Play listing for Cyfamod SMS Staff" /></article><article><div className="play-store-proof-heading"><div><strong>Cyfamod SMS Student</strong><span>Google Play listing evidence</span></div></div><img className="play-store-proof-image" src={assets.playstoreStudent} alt="Google Play listing for Cyfamod SMS Student" /></article></div></section> }
+function Apps() { return <section className="apps section" id="apps"><div className="apps-heading"><div><div className="section-kicker">LIVE ON GOOGLE PLAY</div><h2>School tools that <em>move with you.</em></h2></div></div><div className="app-showcase"><article className="app-card app-card-staff"><div className="app-meta"><img src={assets.staffIcon} alt="Cyfamod SMS Staff app logo" /><div><span>CYFAMOD-SMS</span><h3>Staff app</h3></div></div><p>Classes, students, and activity in one staff app.</p><img className="app-screen" src={assets.staffStudents} alt="Cyfamod staff app student search and filter screen" /></article><article className="app-card app-card-student"><div className="app-meta"><img src={assets.studentIcon} alt="Cyfamod SMS Student app logo" /><div><span>CYFAMOD-SMS</span><h3>Student app</h3></div></div><p>School information, results, and updates in one app.</p><img className="app-screen" src={assets.studentResults} alt="Cyfamod student app results download screen" /></article></div><div className="play-store-evidence"><article><div className="play-store-proof-heading"><div><strong>Cyfamod SMS Staff</strong><span>Google Play listing evidence</span></div></div><img className="play-store-proof-image" src={assets.playstoreStaff} alt="Google Play listing for Cyfamod SMS Staff" /></article><article><div className="play-store-proof-heading"><div><strong>Cyfamod SMS Student</strong><span>Google Play listing evidence</span></div></div><img className="play-store-proof-image" src={assets.playstoreStudent} alt="Google Play listing for Cyfamod SMS Student" /></article></div></section> }
 function Partners() { return <section className="partners section" id="partners"><div className="partner-intro"><div className="section-kicker">CYFAMOD PARTNER PROGRAMME</div><h2>Refer schools.<br /><em>Earn commission.</em></h2><p>Cyfamod SMS is open to approved agents and corporate marketers who can bring the platform to school decision-makers. Every track is built around clear introductions, tracked conversions, and programme terms.</p><Button href="/partners" light>Explore partner tracks</Button></div><div className="partner-tracks"><article><span className="workflow-icon"><Share2 size={40} strokeWidth={1.4} /></span><span className="track-label">TRACK A</span><h3>Referral agent</h3><p>Share a referral code or link with school owners and administrators. Eligible school payments can qualify for percentage-based commission.</p><a href="/contact">Become a referral agent <Arrow /></a></article><article><span className="workflow-icon"><Briefcase size={40} strokeWidth={1.4} /></span><span className="track-label">TRACK B</span><h3>Corporate marketer</h3><p>Find schools, arrange demos, manage follow-up, and support conversion into paying school customers.</p><a href="/contact">Apply as a corporate marketer <Arrow /></a></article></div></section> }
+function TestimonialsSection() {
+  return (
+    <section className="testimonials section" id="testimonials">
+      <div className="section-heading">
+        <div>
+          <div className="section-kicker">TESTIMONIALS</div>
+          <h2>A few words from <em>our community.</em></h2>
+        </div>
+      </div>
+      <div className="testimonials-grid">
+        {testimonials.map((t) => (
+          <article className="testimonial-card" key={t.name}>
+            <div>
+              <div className="testimonial-stars" aria-label="5 out of 5 stars">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} fill="currentColor" stroke="none" />
+                ))}
+              </div>
+              <p className="testimonial-quote">"{t.quote}"</p>
+            </div>
+            <div className="testimonial-author">
+              <img className="testimonial-avatar" src={t.avatar} alt={t.name} />
+              <div className="testimonial-author-info">
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+
 function SchoolMarquee() { return <section className="school-proof" aria-label="Cyfamod SMS school network"><div className="school-proof-heading"><span className="section-kicker">SCHOOL NETWORK</span><h2>Trusted by schools</h2></div><div className="school-marquee"><div className="school-marquee-inner"><div className="marquee-track">{[1, 2, 3].map(copy => <div className="marquee-group" key={copy}>{['abssmx.com.ng','al-hawa.com.ng','an-nur.com.ng','elbethelacademy.com','gdsc.com.ng','hamzawiyya.com.ng','hill-top.com.ng','querencia.com.ng','highpointschools.com','ellaschool.com'].map(name => <strong key={`${copy}-${name}`}>{name}</strong>)}</div>)}</div></div></div></section> }
 function Footer() { return <SiteFooter /> }
 
-export default function Page() { return <main><Header /><Hero /><section className="trust-strip"><div className="section trust-inner"><span className="trust-label">One connected school system</span><span>ADMINISTRATION</span><span>STAFF</span><span>STUDENTS</span><span>RESULTS</span><span>CBT</span></div></section><Reveal><section className="problem section"><div className="section-kicker">THE EVERYDAY PROBLEM</div><div className="problem-grid"><h2>Replace scattered records with <em>centralised school control.</em></h2><div><p>Many schools still manage records, attendance, payments, results, and parent communication across notebooks, spreadsheets, WhatsApp messages, and manual reports.</p><p>Cyfamod SMS brings those daily operations into one organised school management system so leaders can work from accurate information.</p><a className="text-link" href="#platform">See what is connected <Arrow /></a></div></div></section></Reveal><Reveal><Platform /></Reveal><Reveal><Apps /></Reveal><Reveal><Partners /></Reveal><Reveal><SchoolMarquee /></Reveal><Reveal><section className="final-cta section" id="contact"><div><div className="section-kicker">BOOK A DEMO</div><h2>Manage school operations<br /><em>from one platform.</em></h2><p>See the admin dashboard, staff app, student app, CBT, results, attendance, and reports working together in one connected system.</p></div><div className="cta-panel"><span>Request a guided product walkthrough.</span><Button>Book a product demo</Button><small>Built for Nigerian school operations.</small></div></section></Reveal><Footer /></main> }
+export default function Page() { return <main><Header /><Hero /><section className="trust-strip"><div className="section trust-inner"><span className="trust-label">One connected school system</span><span>ADMINISTRATION</span><span>STAFF</span><span>STUDENTS</span><span>RESULTS</span><span>CBT</span></div></section><Reveal><section className="problem section"><div className="section-kicker">THE EVERYDAY PROBLEM</div><div className="problem-grid"><h2>Replace scattered records with <em>centralised school control.</em></h2><div><p>Many schools still manage records, attendance, payments, results, and parent communication across notebooks, spreadsheets, WhatsApp messages, and manual reports.</p><p>Cyfamod SMS brings those daily operations into one organised school management system so leaders can work from accurate information.</p><a className="text-link" href="#platform">See what is connected <Arrow /></a></div></div></section></Reveal><Reveal><Platform /></Reveal><Reveal><Apps /></Reveal><Reveal><Partners /></Reveal><Reveal><TestimonialsSection /></Reveal><Reveal><SchoolMarquee /></Reveal><Reveal><section className="final-cta section" id="contact"><div><div className="section-kicker">BOOK A DEMO</div><h2>Manage school operations<br /><em>from one platform.</em></h2><p>See the admin dashboard, staff app, student app, CBT, results, attendance, and reports working together in one connected system.</p></div><div className="cta-panel"><span>Request a guided product walkthrough.</span><Button>Book a product demo</Button><small>Built for Nigerian school operations.</small></div></section></Reveal><Footer /></main> }
+

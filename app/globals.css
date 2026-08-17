@@ -475,3 +475,25 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
 .contact-proof span:nth-child(2){background:#4c3fbf!important;border-color:#4c3fbf!important;color:#fff!important}
 .contact-proof span:nth-child(3),.contact-proof span:nth-child(4){background:var(--orange)!important;border-color:var(--orange)!important;color:var(--navy)!important}
 .contact-form label span strong{color:#d46f00!important;font-size:.9em!important}
+
+/* Testimonials section */
+.testimonials{background:transparent;position:relative}
+.testimonials:before{display:none}
+.testimonials .section-heading{grid-template-columns:1fr!important;margin-top:clamp(2rem,4vw,3.5rem)!important}
+.testimonials .section-kicker{color:var(--orange)!important;display:inline-block!important;margin-bottom:1.1rem!important;margin-top:0!important}
+
+.testimonials-grid{display:grid;gap:clamp(1.1rem,2.2vw,1.6rem);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:clamp(1.35rem,2.6vw,2.2rem)!important}
+.testimonial-card{background:#fff;border:1px solid #e1e7f2;border-radius:20px;box-shadow:0 10px 30px rgba(13,27,61,.05);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(1.2rem,2.4vw,1.75rem);position:relative;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.testimonial-card:hover{border-color:var(--orange);box-shadow:0 18px 45px rgba(13,27,61,.12);transform:translateY(-6px)}
+
+.testimonial-stars{color:var(--orange);display:flex;gap:.25rem;margin-bottom:.85rem}
+.testimonial-quote{color:#3a4b73;font-size:.92rem!important;line-height:1.6!important;margin:0 0 1.4rem}
+.testimonial-author{align-items:center;border-top:1px solid #eef2f8;display:flex;gap:.85rem;margin-top:auto;padding-top:1rem}
+.testimonial-avatar{border:2px solid var(--orange);border-radius:999px;flex-shrink:0;height:46px;object-fit:cover;width:46px}
+.testimonial-author-info{display:flex;flex-direction:column}
+.testimonial-author-info strong{color:var(--navy);font-size:.92rem;font-weight:850}
+.testimonial-author-info span{color:var(--muted);font-size:.8rem;font-weight:600}
+
+
+
+
