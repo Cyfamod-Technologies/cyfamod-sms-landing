@@ -473,5 +473,78 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
 .contact-copy h1 em{color:var(--orange)!important;font-style:normal!important}
 .contact-proof span{background:#fff!important;border-color:#fff!important;color:var(--navy)!important;box-shadow:0 10px 24px rgba(0,0,0,.18)!important}
 .contact-proof span:nth-child(2){background:#4c3fbf!important;border-color:#4c3fbf!important;color:#fff!important}
-.contact-proof span:nth-child(3),.contact-proof span:nth-child(4){background:var(--orange)!important;border-color:var(--orange)!important;color:var(--navy)!important}
 .contact-form label span strong{color:#d46f00!important;font-size:.9em!important}
+
+/* -------------------------------------------------------------
+   Hero Social Proof Avatar Cluster
+   ------------------------------------------------------------- */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding: 0.75rem 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.avatar-cluster {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-cluster img {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 2px solid var(--orange);
+  object-fit: cover;
+  margin-left: -10px;
+  background: var(--navy);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.avatar-cluster img:first-child {
+  margin-left: 0;
+}
+
+.avatar-cluster:hover img {
+  transform: translateY(-2px);
+}
+
+.avatar-proof-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stars-mini {
+  color: var(--orange);
+  display: flex;
+  gap: 0.15rem;
+}
+
+.avatar-proof-text span {
+  color: #cbd3e8;
+  font-size: 0.76rem;
+}
+
+.avatar-proof-text span strong {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .hero-social-proof {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 16px;
+    gap: 0.6rem;
+  }
+}
+
+
