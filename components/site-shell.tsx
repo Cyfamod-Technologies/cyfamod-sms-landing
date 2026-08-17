@@ -1,11 +1,19 @@
 import Link from 'next/link'
 
+// spinner-logo.png is a full wordmark lockup - the icon AND the
+// "cyfamod-sms / school management system" text already baked into one
+// image, meant to stand alone (see PlatformSpinner below). Using it in
+// BrandLockup - squeezed into a small square, cropping out its own
+// baked-in text - while *also* rendering that same text live in HTML
+// next to it produced a visible "logo behind a logo" duplicate. The
+// header/footer need an icon-only mark instead, paired with live text.
+const brandMark = '/assets/cyfamod-sms-mark-updated.png'
 const platformLogo = '/assets/spinner-logo.png'
 
 function BrandLockup({ footer = false }: { footer?: boolean }) {
   return (
     <>
-      <img src={platformLogo} alt="" />
+      <img src={brandMark} alt="" />
       <span className={footer ? 'brand-copy brand-copy-footer' : 'brand-copy'}>
         <strong>cyfamod-sms</strong>
         <small>school management system</small>
