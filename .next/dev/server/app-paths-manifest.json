@@ -1,8 +1,0 @@
-{
-  "/contact/page": "app/contact/page.js",
-  "/mobile-apps/page": "app/mobile-apps/page.js",
-  "/page": "app/page.js",
-  "/partners/corporate-marketer/page": "app/partners/corporate-marketer/page.js",
-  "/partners/page": "app/partners/page.js",
-  "/referrals/page": "app/referrals/page.js"
-}
