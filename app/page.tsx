@@ -14,6 +14,14 @@ const assets = {
   playstoreStudent: '/assets/playstore-student-proof.png',
 }
 
+const lifestyle = {
+  clutteredDesk: '/assets/lifestyle/cluttered-desk.png',
+  schoolHallway: '/assets/lifestyle/school-hallway.png',
+  referralAgent: '/assets/lifestyle/referral-agent.png',
+  corporateMarketer: '/assets/lifestyle/corporate-marketer.png',
+  teacherUsingApp: '/assets/lifestyle/teacher-using-app.png',
+}
+
 const stakeholders = {
   principalMale: '/assets/stakeholders/principal-male.png',
   principalFemale: '/assets/stakeholders/principal-female.png',
@@ -78,7 +86,7 @@ function DashboardPreview() {
 
 function Hero() {
   return (
-    <section className="hero section" id="top">
+    <section className="hero section hero-with-bg" id="top">
       <div className="hero-copy">
         <div className="hero-top">
           <p className="eyebrow">CYFAMOD SMS <span>•</span> SCHOOL MANAGEMENT SYSTEM</p>
@@ -176,6 +184,15 @@ function Apps() {
           <h2>School tools that<br /><em>move with you.</em></h2>
         </div>
       </div>
+
+      {/* Lifestyle context banner */}
+      <div className="apps-lifestyle-banner">
+        <img src={lifestyle.teacherUsingApp} alt="Nigerian teacher using school management app on her phone in a classroom with students" />
+        <div className="apps-lifestyle-overlay">
+          <span>Used daily by teachers, students, and parents across Nigerian schools.</span>
+        </div>
+      </div>
+
       <div className="app-showcase">
         <article className="app-card app-card-staff">
           <div className="app-meta">
@@ -231,18 +248,27 @@ function Partners() {
         <div className="section-kicker">CYFAMOD PARTNER PROGRAMME</div>
         <h2>Refer schools.<br /><em>Earn commission.</em></h2>
         <p>Cyfamod SMS is open to approved agents and corporate marketers who can bring the platform to school decision-makers. Every track is built around clear introductions, tracked conversions, and programme terms.</p>
+        <div className="partner-stats">
+          <div><strong>2</strong><span>Partner tracks</span></div>
+          <div><strong>100%</strong><span>Conversions tracked</span></div>
+          <div><strong>0</strong><span>Setup fees for agents</span></div>
+        </div>
         <Button href="/partners" light>Explore partner tracks</Button>
       </div>
       <div className="partner-tracks">
         <article>
-          <span className="workflow-icon"><Share2 size={40} strokeWidth={1.4} /></span>
+          <div className="partner-card-image">
+            <img src={lifestyle.referralAgent} alt="Cyfamod referral agent standing outside a Nigerian school gate with a tablet" />
+          </div>
           <span className="track-label">TRACK A</span>
           <h3>Referral agent</h3>
           <p>Share a referral code or link with school owners and administrators. Eligible school payments can qualify for percentage-based commission.</p>
           <a href="/contact">Become a referral agent <Arrow /></a>
         </article>
         <article>
-          <span className="workflow-icon"><Briefcase size={40} strokeWidth={1.4} /></span>
+          <div className="partner-card-image">
+            <img src={lifestyle.corporateMarketer} alt="Corporate marketer shaking hands with a school proprietor in an office" />
+          </div>
           <span className="track-label">TRACK B</span>
           <h3>Corporate marketer</h3>
           <p>Find schools, arrange demos, manage follow-up, and support conversion into paying school customers.</p>
@@ -300,11 +326,15 @@ export default function Page() {
         <section className="problem section">
           <div className="section-kicker">THE EVERYDAY PROBLEM</div>
           <div className="problem-grid">
-            <h2>Replace scattered records with <em>centralised school control.</em></h2>
-            <div>
+            <div className="problem-left">
+              <h2>Replace scattered records with <em>centralised school control.</em></h2>
               <p>Many schools still manage records, attendance, payments, results, and parent communication across notebooks, spreadsheets, WhatsApp messages, and manual reports.</p>
               <p>Cyfamod SMS brings those daily operations into one organised school management system so leaders can work from accurate information.</p>
               <a className="text-link" href="#platform">See what is connected <Arrow /></a>
+            </div>
+            <div className="problem-image">
+              <img src={lifestyle.clutteredDesk} alt="Cluttered Nigerian school administrator desk with paper registers, handwritten report cards, a Nokia phone, and a calculator" />
+              <span className="problem-image-caption">The reality for most schools today — scattered records, manual processes, and zero visibility.</span>
             </div>
           </div>
         </section>
