@@ -268,12 +268,53 @@ body{font-size:16px!important}
 .mobile-feature-staff{background:#4c3fbf;color:#fff}
 .mobile-feature-staff .section-kicker{color:#ffcf70!important}
 .mobile-feature-staff p{color:#ece9ff}
-.mobile-feature-staff img{box-shadow:0 18px 46px #150f4f55}
 .mobile-feature-student{background:var(--orange);color:var(--navy)}
 .mobile-feature-student .section-kicker{color:#583400!important}
 .mobile-feature-student p{color:#2f3150}
-.mobile-feature-student img{box-shadow:0 18px 46px #7b470030}
-@media(max-width:850px){.mobile-feature-card{grid-template-columns:1fr}.mobile-feature-card img{order:-1}}
+@media(max-width:850px){.mobile-feature-card{grid-template-columns:1fr}.mobile-feature-card .phone-frame{order:-1}}
+
+/* Phone-mockup frame around the feature graphics, echoes .screen-frame in the Hero */
+.phone-frame{background:#020817;border-radius:32px;padding:10px;transition:transform .3s var(--ease-standard)}
+.phone-frame img{border-radius:22px}
+.mobile-feature-staff .phone-frame{box-shadow:0 18px 46px #150f4f55;transform:rotate(-2deg)}
+.mobile-feature-student .phone-frame{box-shadow:0 18px 46px #7b470030;transform:rotate(2deg)}
+.mobile-feature-card:hover .phone-frame{transform:rotate(0deg) translateY(-4px)}
+@media(max-width:600px){.phone-frame{padding:7px}.mobile-feature-staff .phone-frame,.mobile-feature-student .phone-frame{transform:none}}
+
+/* /referrals - background photo bleed (full-section, like the Hero) + dot-grid */
+.referral-page-with-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.referral-page-with-bg:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff45 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.referral-page-with-bg:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/lifestyle/referral-agent.png');
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0.08;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.referral-page-with-bg .referral-inner {
+  position: relative;
+  z-index: 1;
+}
 
 /* Mobile app card density + CTAs */
 .mobile-app-stack{gap:clamp(1.1rem,2.2vw,1.7rem)!important;margin-top:clamp(1rem,2vw,1.6rem)!important}
@@ -284,7 +325,7 @@ body{font-size:16px!important}
 .mobile-feature-card .section-kicker{margin-bottom:.5rem!important}
 .app-cta-button{background:#fff!important;border:1px solid #fff!important;border-radius:999px!important;box-shadow:0 12px 28px #00000024!important;color:var(--navy)!important;font-size:.88rem!important;font-weight:900!important;padding:.78rem 1rem!important}
 .mobile-feature-student .app-cta-button{background:var(--navy)!important;border-color:var(--navy)!important;color:#fff!important}
-.mobile-feature-card img{align-self:start!important}
+.mobile-feature-card .phone-frame{align-self:start!important}
 
 /* Balance app card text vertically against the feature graphics */
 .mobile-feature-card>div{display:flex!important;flex-direction:column!important;min-height:100%!important;padding-block:clamp(.4rem,1.4vw,1.1rem)!important}
@@ -473,8 +514,576 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
 .contact-copy h1 em{color:var(--orange)!important;font-style:normal!important}
 .contact-proof span{background:#fff!important;border-color:#fff!important;color:var(--navy)!important;box-shadow:0 10px 24px rgba(0,0,0,.18)!important}
 .contact-proof span:nth-child(2){background:#4c3fbf!important;border-color:#4c3fbf!important;color:#fff!important}
-.contact-proof span:nth-child(3),.contact-proof span:nth-child(4){background:var(--orange)!important;border-color:var(--orange)!important;color:var(--navy)!important}
 .contact-form label span strong{color:#d46f00!important;font-size:.9em!important}
+
+/* -------------------------------------------------------------
+   Hero Social Proof Avatar Cluster
+   ------------------------------------------------------------- */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding: 0.75rem 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.avatar-cluster {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-cluster img {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 2px solid var(--orange);
+  object-fit: cover;
+  margin-left: -10px;
+  background: var(--navy);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.avatar-cluster img:first-child {
+  margin-left: 0;
+}
+
+.avatar-cluster:hover img {
+  transform: translateY(-2px);
+}
+
+.avatar-proof-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stars-mini {
+  color: var(--orange);
+  display: flex;
+  gap: 0.15rem;
+}
+
+.avatar-proof-text span {
+  color: #cbd3e8;
+  font-size: 0.76rem;
+}
+
+.avatar-proof-text span strong {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .hero-social-proof {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 16px;
+    gap: 0.6rem;
+  }
+}
+
+/* -------------------------------------------------------------
+   Lifestyle Imagery & Visual Modernization
+   ------------------------------------------------------------- */
+
+/* Hero background atmospheric layer */
+.hero-with-bg {
+  position: relative;
+}
+
+.hero-with-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/lifestyle/school-hallway.png');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: luminosity;
+}
+
+/* Problem Section - 2-Column Before/After Split */
+.problem {
+  position: relative;
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(13, 27, 61, 0.06) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.problem-grid {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: center !important;
+  gap: clamp(2rem, 4vw, 4rem) !important;
+}
+
+.problem-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-left h2 {
+  margin-bottom: 1.2rem;
+}
+
+.problem-image {
+  margin-top: 0;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 24px 50px rgba(13, 27, 61, 0.14);
+  border: 1px solid var(--border);
+  background: var(--navy);
+}
+
+.problem-image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s var(--ease-standard);
+}
+
+.problem-image:hover img {
+  transform: scale(1.02);
+}
+
+.problem-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.4rem;
+  background: linear-gradient(0deg, rgba(13, 27, 61, 0.94) 0%, rgba(13, 27, 61, 0.7) 70%, transparent 100%);
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 900px) {
+  .problem-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .problem-image {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Apps Section - Lifestyle Context Banner */
+.apps {
+  position: relative;
+  background-image: radial-gradient(rgba(13, 27, 61, 0.05) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.apps-lifestyle-banner {
+  margin-top: 3rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  max-height: 340px;
+  box-shadow: 0 20px 45px rgba(13, 27, 61, 0.1);
+  border: 1px solid var(--border);
+}
+
+.apps-lifestyle-banner img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  transition: transform 0.4s var(--ease-standard);
+}
+
+.apps-lifestyle-banner:hover img {
+  transform: scale(1.02);
+}
+
+.apps-lifestyle-overlay {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  right: 1.2rem;
+  padding: 0.85rem 1.4rem;
+  background: rgba(13, 27, 61, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .apps-lifestyle-overlay {
+    border-radius: 14px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Partner Cards - Lifestyle Photo Headers */
+.partner-card-image {
+  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  height: 180px;
+  overflow: hidden;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+}
+
+.partner-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  transition: transform 0.3s var(--ease-standard);
+}
+
+.partner-tracks article:hover .partner-card-image img {
+  transform: scale(1.04);
+}
+
+/* Partners section atmosphere - dot-grid + ambient glow, matching Hero/Platform */
+.partners {
+  position: relative;
+}
+
+.partners:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff45 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.partner-intro,
+.partner-tracks {
+  position: relative;
+  z-index: 1;
+}
+
+.partner-intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Partner trust strip - proof-point stat row, echoes .hero-social-proof */
+.partner-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin-top: 0.4rem;
+}
+
+.partner-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.partner-stats div + div {
+  padding-left: 1.4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.partner-stats strong {
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.partner-stats span {
+  color: #cbd3e8;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .partner-stats {
+    gap: 1rem;
+  }
+  .partner-stats div + div {
+    padding-left: 1rem;
+  }
+}
+
+/* /partners subpage - texture + photo cards, scoped so no other .subpage is touched */
+.partners-subpage {
+  position: relative;
+  overflow: hidden;
+}
+
+.partners-subpage:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff45 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.partners-subpage:after {
+  content: '';
+  position: absolute;
+  top: -220px;
+  right: -180px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(99, 81, 223, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.partners-subpage .subpage-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.subpage-card-image {
+  height: 160px;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+
+.subpage-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  transition: transform 0.3s var(--ease-standard);
+}
+
+.partners-subpage .subpage-grid article {
+  transition: transform 0.2s var(--ease-standard), box-shadow 0.2s var(--ease-standard);
+}
+
+.partners-subpage .subpage-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.partners-subpage .subpage-grid article:hover .subpage-card-image img {
+  transform: scale(1.04);
+}
+
+.step-grid-wrap,
+.partner-faq {
+  margin-top: 4.5rem;
+}
+
+.step-grid-wrap h2,
+.partner-faq h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -.02em;
+  margin: 0.6rem 0 0;
+  max-width: 640px;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.step-card {
+  background: #ffffff0d;
+  border: 1px solid #ffffff26;
+  border-radius: 1.2rem;
+  padding: 1.4rem;
+}
+
+.step-number {
+  color: var(--orange);
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+
+.step-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.step-card p {
+  color: #cbd3e8;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 2.5rem;
+  margin-top: 2rem;
+}
+
+.faq-grid h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.faq-grid p {
+  color: #cbd3e8;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.partners-subpage .marketer-cta {
+  margin-top: 4.5rem;
+}
+
+@media (max-width: 900px) {
+  .step-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .step-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+  .step-grid-wrap,
+  .partner-faq,
+  .partners-subpage .marketer-cta {
+    margin-top: 3rem;
+  }
+}
+
+/* /referrals - breathing room for the copy column (scoped, doesn't touch other subpages) */
+.referral-copy {
+  gap: 0.4rem;
+}
+
+.referral-copy .section-kicker {
+  margin-bottom: 1.4rem !important;
+}
+
+.referral-copy h1 {
+  margin-bottom: 1.8rem !important;
+}
+
+.referral-copy .hero-text {
+  margin-bottom: 2rem !important;
+}
+
+@media (max-width: 700px) {
+  .referral-copy .section-kicker {
+    margin-bottom: 1rem !important;
+  }
+  .referral-copy h1 {
+    margin-bottom: 1.2rem !important;
+  }
+  .referral-copy .hero-text {
+    margin-bottom: 1.4rem !important;
+  }
+}
+
+/* /contact - dot-grid texture, matching every other dark subpage */
+.contact-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-page:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff45 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-page .contact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* /partners/corporate-marketer - dot-grid texture, matching every other dark subpage */
+.marketer-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.marketer-page:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff45 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.marketer-page .marketer-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* /partners/corporate-marketer - same breathing-room fix for the hero copy column */
+.marketer-hero > div {
+  gap: 0.4rem;
+}
+
+.marketer-hero > div .section-kicker {
+  margin-bottom: 1.4rem !important;
+}
+
+.marketer-hero > div h1 {
+  margin-bottom: 1.8rem !important;
+}
+
+.marketer-hero > div .hero-text {
+  margin-bottom: 2rem !important;
+}
+
+@media (max-width: 700px) {
+  .marketer-hero > div .section-kicker {
+    margin-bottom: 1rem !important;
+  }
+  .marketer-hero > div h1 {
+    margin-bottom: 1.2rem !important;
+  }
+  .marketer-hero > div .hero-text {
+    margin-bottom: 1.4rem !important;
+  }
+}
 
 /* -------------------------------------------------------------
    HiStudy-Faithful Testimonial Splash Area
@@ -836,8 +1445,3 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
     margin: 2rem auto 0;
   }
 }
-
-
-
-
-
