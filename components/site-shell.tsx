@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 // spinner-logo.png is a full wordmark lockup - the icon AND the
 // "cyfamod-sms / school management system" text already baked into one
@@ -41,7 +42,10 @@ export function SiteHeader() {
         </div>
         <Link href="/contact">Contact</Link>
       </nav>
-      <Link className="header-cta" href="/contact">Book a demo <span aria-hidden="true">↗</span></Link>
+      <div className="header-actions">
+        <ThemeToggle />
+        <Link className="header-cta" href="/contact">Book a demo <span aria-hidden="true">↗</span></Link>
+      </div>
     </header>
   )
 }

@@ -516,6 +516,633 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
 .contact-proof span:nth-child(2){background:#4c3fbf!important;border-color:#4c3fbf!important;color:#fff!important}
 .contact-form label span strong{color:#d46f00!important;font-size:.9em!important}
 
+/* ── Modern Pill Theme Toggle ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Pill track */
+.theme-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(13, 27, 61, 0.65);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.theme-pill:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 159, 10, 0.5);
+}
+
+.theme-pill:hover {
+  background: rgba(23, 41, 86, 0.9);
+  border-color: rgba(255, 159, 10, 0.7);
+}
+
+/* Sliding thumb */
+.theme-pill-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #172956;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffca3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.22s ease,
+              border-color 0.22s ease,
+              color 0.22s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Thumb slides right when light mode is on */
+.theme-pill[data-theme-light="true"] .theme-pill-thumb {
+  transform: translateX(24px);
+  background: var(--orange);
+  border-color: #ffa51f;
+  color: #0d1b3d;
+  box-shadow: 0 2px 8px rgba(255, 159, 10, 0.4);
+}
+
+/* ── Theme transition: smooth crossfade on mode switch ── */
+html {
+  transition: background 0.3s ease;
+}
+
+body,
+.site-header,
+.hero,
+.problem,
+.platform,
+.apps,
+.partners,
+.final-cta,
+.school-proof,
+.trust-strip,
+.cbt-feature,
+.site-footer,
+.subpage,
+.referral-page,
+.marketer-page,
+.coming-soon-page,
+.contact-page,
+.contact-form,
+.workflow-card,
+.app-card,
+.partner-tracks article {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ── Comprehensive Light Theme (html.theme-light) ── */
+
+/* Base */
+html.theme-light {
+  color-scheme: light;
+  background: #f4f6fb !important;
+}
+
+html.theme-light body {
+  background: #f4f6fb !important;
+  color: #0d1b3d !important;
+}
+
+/* ── Header ── */
+html.theme-light .site-header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 2px solid rgba(13, 27, 61, 0.08) !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  box-shadow: 0 4px 24px rgba(13, 27, 61, 0.08) !important;
+  color: #0d1b3d !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.theme-light .site-header nav a,
+html.theme-light .site-header .nav-dropdown > a {
+  color: #1e3a6e !important;
+  opacity: 0.85 !important;
+  text-shadow: none !important;
+}
+
+html.theme-light .site-header nav a:hover,
+html.theme-light .site-header .nav-dropdown > a:hover {
+  color: #0d1b3d !important;
+  opacity: 1 !important;
+}
+
+html.theme-light .brand-copy strong {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .brand-copy small {
+  color: #4a6090 !important;
+}
+
+html.theme-light .site-header .header-cta {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .site-header .header-cta:hover {
+  background: #ffb13b !important;
+  border-color: #ffb13b !important;
+}
+
+/* Toggle in light mode */
+html.theme-light .theme-pill {
+  background: #e8edf5 !important;
+  border-color: #c5cfe0 !important;
+}
+
+html.theme-light .theme-pill:hover {
+  background: #dde4ef !important;
+  border-color: var(--orange) !important;
+}
+
+html.theme-light .theme-pill-thumb {
+  background: var(--orange) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(255, 159, 10, 0.38) !important;
+}
+
+html.theme-light .theme-pill-icon-sun {
+  color: var(--orange) !important;
+}
+
+html.theme-light .theme-pill-icon-moon {
+  color: #94a3b8 !important;
+}
+
+/* ── Hero ── */
+html.theme-light .hero {
+  background: linear-gradient(160deg, #eef2ff 0%, #f4f6fb 60%, #fff8ee 100%) !important;
+  color: #0d1b3d !important;
+  border-bottom: 1px solid #dde4f0 !important;
+}
+
+html.theme-light .hero::before {
+  background-image: radial-gradient(#0d1b3d18 1px, transparent 1px) !important;
+  opacity: 0.4 !important;
+}
+
+html.theme-light .hero h1 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .hero-text {
+  color: #3d5280 !important;
+}
+
+html.theme-light .cd-words-wrapper b {
+  color: #4f3fbf !important;
+}
+
+html.theme-light .floating-note {
+  background: #ffffff !important;
+  color: #0d1b3d !important;
+  box-shadow: 0 8px 28px rgba(13, 27, 61, 0.1) !important;
+  border: 1px solid #dde4f0 !important;
+}
+
+html.theme-light .floating-note .note-two span {
+  color: #4a6090 !important;
+}
+
+html.theme-light .screen-frame {
+  background: #dde4f0 !important;
+  border-color: #dde4f0 !important;
+  box-shadow: 20px 20px 0 rgba(13, 27, 61, 0.06) !important;
+}
+
+html.theme-light .hero-proof {
+  border-left-color: var(--orange) !important;
+}
+
+html.theme-light .hero-proof span {
+  color: #4a6090 !important;
+}
+
+/* ── Trust Strip ── */
+html.theme-light .trust-strip {
+  background: var(--orange) !important;
+  color: #0d1b3d !important;
+}
+
+/* ── Problem section ── */
+html.theme-light .problem {
+  background: #f4f6fb !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .problem h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .problem-grid p {
+  color: #3d5280 !important;
+}
+
+/* ── Platform / Workflow ── */
+html.theme-light .platform {
+  background: #ffffff !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .platform::before {
+  background-image: radial-gradient(#0d1b3d10 1px, transparent 1px) !important;
+  opacity: 0.5 !important;
+}
+
+html.theme-light .platform .section-heading h2,
+html.theme-light .section-heading > p {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .section-heading > p {
+  color: #3d5280 !important;
+}
+
+html.theme-light .workflow-card {
+  background: #f7f9fe !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 0 2px 14px rgba(13, 27, 61, 0.05) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .workflow-card h3 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .workflow-card > p,
+html.theme-light .workflow-description {
+  color: #3d5280 !important;
+}
+
+html.theme-light .workflow-card li {
+  color: #1e3a6e !important;
+}
+
+html.theme-light .workflow-card::before {
+  background: linear-gradient(135deg, rgba(255, 159, 10, 0.07), rgba(79, 63, 191, 0.07)) !important;
+}
+
+html.theme-light .workflow-card:hover {
+  border-color: var(--orange) !important;
+  box-shadow: 0 10px 30px rgba(255, 159, 10, 0.12) !important;
+}
+
+/* CBT feature (inside platform section, white card on dark bg) */
+html.theme-light .cbt-feature {
+  background: #eef2ff !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .cbt-feature h3 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .cbt-feature p {
+  color: #3d5280 !important;
+}
+
+html.theme-light .cbt-screen {
+  background: #dde4f0 !important;
+}
+
+/* ── Apps section ── */
+html.theme-light .apps {
+  background: #f4f6fb !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .apps-heading h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .apps-heading > p {
+  color: #3d5280 !important;
+}
+
+/* Keep app cards their brand colours — they're self-contained */
+html.theme-light .app-card-staff {
+  background: #3b2fa8 !important;
+}
+
+html.theme-light .app-card-student {
+  background: var(--orange) !important;
+}
+
+html.theme-light .closed-testing {
+  background: #ffffff !important;
+  border-color: #dde4f0 !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .closed-testing .app-meta span {
+  color: #4a6090 !important;
+}
+
+/* ── School Proof ── */
+html.theme-light .school-proof {
+  background: #edf0f7 !important;
+}
+
+html.theme-light .school-proof-heading h2 {
+  color: #0d1b3d !important;
+}
+
+/* Marquee stays dark — it's intentionally contrast-branded */
+
+/* ── Partners section ── */
+html.theme-light .partners {
+  background: #f0f3fa !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .partner-intro {
+  background: #ffffff !important;
+  border-color: #dde4f0 !important;
+}
+
+html.theme-light .partner-intro h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .partner-intro > p {
+  color: #3d5280 !important;
+}
+
+html.theme-light .partner-tracks article {
+  background: #ffffff !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 0 4px 18px rgba(13, 27, 61, 0.06) !important;
+}
+
+html.theme-light .partner-tracks article h3 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .partner-tracks article p {
+  color: #3d5280 !important;
+}
+
+/* ── Final CTA ── */
+html.theme-light .final-cta {
+  background: #f4f6fb !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .final-cta h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .final-cta p {
+  color: #3d5280 !important;
+}
+
+html.theme-light .cta-panel {
+  border-left-color: var(--orange) !important;
+}
+
+html.theme-light .cta-panel span {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .cta-panel small {
+  color: #4a6090 !important;
+}
+
+/* ── Footer ── */
+html.theme-light .site-footer {
+  background: #e8edf5 !important;
+  border-top: 1px solid #d0d9e8 !important;
+  color: #3d5280 !important;
+}
+
+html.theme-light .site-footer .brand-copy strong {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .site-footer .brand-copy small {
+  color: #4a6090 !important;
+}
+
+html.theme-light .site-footer .footer-links a {
+  color: #1e3a6e !important;
+  opacity: 0.8 !important;
+}
+
+html.theme-light .site-footer .footer-links a:hover {
+  opacity: 1 !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .site-footer .footer-copy {
+  color: #4a6090 !important;
+}
+
+html.theme-light .site-footer .footer-copy a {
+  color: var(--orange) !important;
+}
+
+/* ── Subpages: contact, mobile-apps, referrals, marketer, coming-soon ── */
+html.theme-light .contact-page,
+html.theme-light .subpage,
+html.theme-light .referral-page,
+html.theme-light .marketer-page,
+html.theme-light .coming-soon-page {
+  background: #f4f6fb !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .contact-copy h1,
+html.theme-light .subpage h1,
+html.theme-light .referral-copy h1,
+html.theme-light .marketer-page h1,
+html.theme-light .coming-soon-page h1 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .contact-copy h1 em,
+html.theme-light .subpage h1 em,
+html.theme-light .referral-copy h1 em,
+html.theme-light .marketer-page h1 em,
+html.theme-light .coming-soon-page em {
+  color: var(--orange) !important;
+}
+
+html.theme-light .hero-text,
+html.theme-light .subpage .hero-text,
+html.theme-light .referral-page .hero-text,
+html.theme-light .marketer-page .hero-text,
+html.theme-light .contact-copy .hero-text {
+  color: #3d5280 !important;
+}
+
+/* Contact form */
+html.theme-light .contact-form {
+  background: #ffffff !important;
+  border-color: #d0d9e8 !important;
+  box-shadow: 0 16px 48px rgba(13, 27, 61, 0.1) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .contact-form input,
+html.theme-light .contact-form select,
+html.theme-light .contact-form textarea {
+  background: #f4f6fb !important;
+  border-color: #c5cfe0 !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .contact-proof span {
+  background: #ffffff !important;
+  border-color: #dde4f0 !important;
+  color: #0d1b3d !important;
+  box-shadow: 0 4px 14px rgba(13, 27, 61, 0.08) !important;
+}
+
+html.theme-light .contact-proof span:nth-child(2) {
+  background: #4c3fbf !important;
+  border-color: #4c3fbf !important;
+  color: #fff !important;
+}
+
+html.theme-light .contact-proof span:nth-child(3),
+html.theme-light .contact-proof span:nth-child(4) {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #0d1b3d !important;
+}
+
+/* Subpage cards */
+html.theme-light .subpage-grid article {
+  background: #ffffff !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 0 4px 18px rgba(13, 27, 61, 0.06) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .subpage-grid article h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .subpage-grid article p {
+  color: #3d5280 !important;
+}
+
+/* Referral panel */
+html.theme-light .referral-panel {
+  background: #ffffff !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 12px 12px 0 rgba(13, 27, 61, 0.08) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .referral-panel h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .referral-panel li {
+  color: #1e3a6e !important;
+  border-bottom-color: #dde4f0 !important;
+}
+
+html.theme-light .referral-panel p {
+  color: #3d5280 !important;
+}
+
+/* Coming soon card */
+html.theme-light .coming-soon-card {
+  background: #ffffff !important;
+  border-color: #dde4f0 !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .coming-soon-card p {
+  color: #3d5280 !important;
+}
+
+/* Marketer comp cards */
+html.theme-light .comp-card {
+  background: #ffffff !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 0 4px 18px rgba(13, 27, 61, 0.06) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .comp-card p {
+  color: #3d5280 !important;
+}
+
+html.theme-light .comp-card-highlight {
+  background: var(--orange) !important;
+}
+
+html.theme-light .comp-card-highlight p {
+  color: #0d1b3d !important;
+  opacity: 0.82 !important;
+}
+
+html.theme-light .job-grid article {
+  background: #ffffff !important;
+  border: 1px solid #dde4f0 !important;
+  box-shadow: 0 4px 18px rgba(13, 27, 61, 0.06) !important;
+  color: #0d1b3d !important;
+}
+
+html.theme-light .job-grid h2 {
+  color: #0d1b3d !important;
+}
+
+html.theme-light .job-grid p,
+html.theme-light .job-grid li {
+  color: #3d5280 !important;
+}
+
+html.theme-light .marketer-cta {
+  background: var(--orange) !important;
+  color: #0d1b3d !important;
+}
+
+/* Mobile app cards stay brand-coloured */
+html.theme-light .mobile-feature-staff {
+  background: #3b2fa8 !important;
+}
+
+html.theme-light .mobile-feature-student {
+  background: var(--orange) !important;
+}
+
+/* Nav dropdown stays white in both modes */
+html.theme-light .nav-dropdown-menu {
+  background: #ffffff !important;
+  border-color: #d0d9e8 !important;
+  color: #0d1b3d !important;
+}
+
 /* ── HiStudy Circular Scroll-to-Top Progress ── */
 .rbt-progress-parent {
   position: fixed;
