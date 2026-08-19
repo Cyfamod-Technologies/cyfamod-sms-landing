@@ -795,46 +795,50 @@ jobs:
           key_pattern = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
           entry_count = 0
 
-          with open(
-              environment_file,
-              "r",
-              encoding="utf-8-sig",
-          ) as file:
-              environment_content = file.read()
+          if environment_file:
+              with open(
+                  environment_file,
+                  "r",
+                  encoding="utf-8-sig",
+              ) as file:
+                  environment_content = file.read()
 
-          for line_number, raw_line in enumerate(
-              environment_content.splitlines(),
-              start=1,
-          ):
-              line = raw_line.rstrip("\r")
+              for line_number, raw_line in enumerate(
+                  environment_content.splitlines(),
+                  start=1,
+              ):
+                  line = raw_line.rstrip("\r")
 
-              if not line.strip():
-                  continue
+                  if not line.strip():
+                      continue
 
-              if line.lstrip().startswith("#"):
-                  continue
+                  if line.lstrip().startswith("#"):
+                      continue
 
-              if "=" not in line:
-                  print(
-                      f"Invalid environment entry on line "
-                      f"{line_number}: expected KEY=value"
-                  )
+                  if "=" not in line:
+                      print(
+                          f"Invalid environment entry on line "
+                          f"{line_number}: expected KEY=value"
+                      )
+                      sys.exit(1)
+
+                  key, _ = line.split("=", 1)
+
+                  if not key_pattern.fullmatch(key):
+                      print(
+                          f"Invalid environment variable name "
+                          f"on line {line_number}: {key}"
+                      )
+                      sys.exit(1)
+
+                  entry_count += 1
+
+              if entry_count == 0:
+                  print("Environment file contains no valid variables.")
                   sys.exit(1)
-
-              key, _ = line.split("=", 1)
-
-              if not key_pattern.fullmatch(key):
-                  print(
-                      f"Invalid environment variable name "
-                      f"on line {line_number}: {key}"
-                  )
-                  sys.exit(1)
-
-              entry_count += 1
-
-          if entry_count == 0:
-              print("Environment file contains no valid variables.")
-              sys.exit(1)
+          else:
+              print("ENV_FILE is not set - sending an empty environment (static site).")
+              environment_content = ""
 
           provider_payload = {
               "applicationId": application_id,
