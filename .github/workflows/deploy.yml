@@ -83,7 +83,7 @@ jobs:
             exit 1
           fi
 
-          if [[ "$SERVER_ENV_FILE" != /* ]]; then
+          if [[ -n "$SERVER_ENV_FILE" && "$SERVER_ENV_FILE" != /* ]]; then
             echo "SERVER_ENV_FILE must be an absolute path."
             echo "Current value: $SERVER_ENV_FILE"
             exit 1
