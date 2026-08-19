@@ -1085,4 +1085,363 @@ a.button.button-light,.button-light{background:#fff!important;border:1px solid #
   }
 }
 
+/* -------------------------------------------------------------
+   HiStudy-Faithful Testimonial Splash Area
+   ------------------------------------------------------------- */
+.rbt-splash-testimonial-area {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(4rem, 7vw, 6.5rem);
+  padding-bottom: 2rem;
+  background: var(--background);
+}
 
+.rbt-splash-testimonial-area .section-title {
+  margin: 0 auto clamp(1.5rem, 3.5vw, 3rem);
+  max-width: 960px;
+  text-align: center;
+}
+
+.rbt-splash-testimonial-area .subtitle.bg-primary-opacity {
+  background: rgba(255, 159, 10, 0.12);
+  border: 1px solid rgba(255, 159, 10, 0.25);
+  border-radius: 999px;
+  color: var(--orange);
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  padding: 0.45rem 1.2rem;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+
+.rbt-splash-testimonial-area .title {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 850;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-rotator-line {
+  display: block;
+  margin-top: 0.5rem;
+  min-height: 2.4rem;
+  text-align: center;
+}
+
+.testimonials-rotator-line .cd-headline-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.testimonials-rotator-line .cd-words-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 2.4rem;
+}
+
+.testimonials-rotator-line .cd-words-wrapper b {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 850;
+  letter-spacing: -0.015em;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  position: absolute;
+  white-space: nowrap;
+}
+
+.testimonials-rotator-line .cd-words-wrapper b.is-visible {
+  opacity: 1;
+  position: relative;
+  left: auto;
+  transform: none;
+}
+
+.theme-gradient {
+  background: linear-gradient(90deg, #ff9f0a 0%, #ff6b00 45%, #6351df 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ── Testimonial All Wrapper with the Semi-Opaque Veil ── */
+.splash-testimonial-all-wrapper {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 70px;
+}
+
+/* The exact HiStudy semi-opaque gradient overlay veil */
+.splash-testimonial-all-wrapper::before {
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  background: linear-gradient(rgba(13, 27, 61, 0) 0%, rgba(13, 27, 61, 0.88) 55%, rgba(13, 27, 61, 0.98) 95%);
+  z-index: 2;
+  content: "";
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+/* ── Floating Read More Review Overlay (Exact HiStudy positioning) ── */
+.splash-testimonial-all-wrapper .read-more-review {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  width: max-content;
+  max-width: 90vw;
+}
+
+.read-more-review .title.color-white {
+  color: #ffffff !important;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.read-more-review .title.rbt-title-style-2.color-white {
+  color: #cbd3e8 !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.read-more-review .title.rbt-title-style-2 strong {
+  color: var(--orange);
+}
+
+/* ── HiStudy Double-Arrow Hover Button ── */
+.rbt-btn.btn-gradient {
+  background: linear-gradient(90deg, #ff9f0a 0%, #ff6b00 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(255, 159, 10, 0.45);
+  color: var(--navy) !important;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  padding: 1rem 2.2rem;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.24s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.24s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.rbt-btn.btn-gradient:hover {
+  box-shadow: 0 18px 45px rgba(255, 159, 10, 0.6);
+  transform: translateY(-3px);
+}
+
+.icon-reverse-wrapper {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.55rem;
+  position: relative;
+}
+
+.hover-icon-reverse .btn-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+}
+
+.hover-icon-reverse .btn-icon:last-child {
+  position: absolute;
+  right: 0;
+  transform: translateX(-18px);
+  opacity: 0;
+}
+
+.hover-icon-reverse:hover .btn-icon:first-of-type {
+  transform: translateX(18px);
+  opacity: 0;
+}
+
+.hover-icon-reverse:hover .btn-icon:last-child {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* ── Scrolling Tracks ── */
+.scroll-animation-wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mt--50 {
+  margin-top: 1.5rem;
+}
+
+.mt--30 {
+  margin-top: 1.25rem;
+}
+
+.scroll-animation {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+.scroll-right-left {
+  animation: histudyScrollLeft 52s linear infinite;
+}
+
+.scroll-left-right {
+  animation: histudyScrollRight 52s linear infinite;
+}
+
+.scroll-animation:hover {
+  animation-play-state: paused;
+}
+
+@keyframes histudyScrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes histudyScrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-right-left,
+  .scroll-left-right {
+    animation: none;
+  }
+}
+
+/* ── Single Testimonial Box (HiStudy Styles) ── */
+.single-column-20 {
+  flex-shrink: 0;
+  width: 380px;
+}
+
+.rbt-testimonial-box.style-2 .inner {
+  background: #ffffff;
+  border: 1px solid #dde4f0;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(13, 27, 61, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 1.6rem 1.7rem;
+  transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.rbt-testimonial-box.style-2:hover .inner {
+  border-color: var(--orange);
+  box-shadow: 0 18px 45px rgba(255, 159, 10, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Subtle gradient cards matching HiStudy */
+.bg-theme-gradient-odd .rbt-testimonial-box.style-2 .inner {
+  background: linear-gradient(145deg, #ffffff 0%, #f7f9fd 100%);
+}
+
+.bg-theme-gradient-even .rbt-testimonial-box.style-2 .inner {
+  background: linear-gradient(145deg, #ffffff 0%, #fcf9f5 100%);
+  border-color: #f1dfc8;
+}
+
+.rbt-testimonial-box .testimonial-stars {
+  color: var(--orange);
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.rbt-testimonial-box .subtitle-3 {
+  color: #334366;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.clint-info-wrapper {
+  align-items: center;
+  border-top: 1px solid #eef2f9;
+  display: flex;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+}
+
+.clint-info-wrapper .thumb img {
+  border: 2px solid var(--orange);
+  border-radius: 999px;
+  display: block;
+  height: 46px;
+  object-fit: cover;
+  width: 46px;
+}
+
+.clint-info-wrapper .client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.clint-info-wrapper .client-info .title {
+  color: var(--navy);
+  font-size: 0.94rem;
+  font-weight: 850;
+  margin: 0;
+}
+
+.clint-info-wrapper .client-info .role {
+  color: #61708b;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .splash-testimonial-all-wrapper .read-more-review {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 2rem auto 0;
+  }
+}

@@ -30,6 +30,70 @@ const stakeholders = {
   studentMale: '/assets/stakeholders/student-male.png',
 }
 
+const testimonialsRow1 = [
+  {
+    name: 'Dr. Adebayo Oluwaseun',
+    role: 'School Principal • Lagos',
+    avatar: '/assets/testimonials/dr-adebayo.png',
+    quote: 'From fee management to broadsheets, everything is automated. It handles all our campuses seamlessly.',
+  },
+  {
+    name: 'Mrs. Ngozi Adekunle',
+    role: 'Vice Principal (Academics) • Abuja',
+    avatar: '/assets/testimonials/mrs-ngozi.png',
+    quote: 'Auto-calculated positions and instant broadsheets cut our end-of-term grading from two weeks to one afternoon.',
+  },
+  {
+    name: 'Emeka Nwosu',
+    role: 'Mathematics & Science Lead • Port Harcourt',
+    avatar: '/assets/testimonials/emeka-nwosu.png',
+    quote: "Daily attendance and test score entry take seconds. It's the most intuitive tool I've used in the classroom.",
+  },
+  {
+    name: 'Chidi Okafor',
+    role: 'Senior Physics Teacher • Ibadan',
+    avatar: '/assets/testimonials/chidi-okafor.png',
+    quote: 'Publishing CBT exams and grading hundreds of student answers is now instant. Zero exam leakages, zero marking stress.',
+  },
+]
+
+const testimonialsRow2 = [
+  {
+    name: 'Mrs. Funmi Balogun',
+    role: 'Parent & PTA Executive • Lekki',
+    avatar: '/assets/testimonials/parent-1.png',
+    quote: "Checking terminal results, fee receipts, and daily attendance on the parent portal is seamless. Total peace of mind.",
+  },
+  {
+    name: 'Tobi Adeyemi',
+    role: 'SS3 Student • Valedictorian',
+    avatar: '/assets/testimonials/student-2.png',
+    quote: 'Taking practice CBT exams on the student app prepared me for WAEC and JAMB. The interface is clean and super fast.',
+  },
+  {
+    name: 'Alhaji Ibrahim Danladi',
+    role: 'Proprietor & Board Chair • Kano',
+    avatar: '/assets/testimonials/dr-adebayo.png',
+    quote: 'Consolidating school finances, student records, and staff payroll gave our board total operational transparency.',
+  },
+  {
+    name: 'Grace Kalu',
+    role: 'Examination Officer • Enugu',
+    avatar: '/assets/testimonials/mrs-ngozi.png',
+    quote: 'Bulk result sheet generation and automated broadsheet compiling eliminated term-end errors completely.',
+  },
+]
+
+const testimonialRotatingPhrases = [
+  'Connected School Portals.',
+  'Fast Term Reports.',
+  'Paperless Student Admissions.',
+  'Instant Parent Updates.',
+  'Stress-Free CBT Testing.',
+  'Instant Result Notifications.',
+  'Unified School Operations.',
+]
+
 const Arrow = () => <ArrowUpRight aria-hidden="true" size={16} />
 const iconMap = { administration: Database, attendance: UsersRound, results: ClipboardCheck, assessments: GraduationCap }
 
@@ -307,6 +371,115 @@ function Footer() {
   return <SiteFooter />
 }
 
+function SingleTestimonialCard({ t, gradientClass = 'bg-theme-gradient-odd' }: { t: typeof testimonialsRow1[0]; gradientClass?: string }) {
+  return (
+    <div className={`single-column-20 ${gradientClass}`}>
+      <div className="rbt-testimonial-box style-2">
+        <div className="inner">
+          <div className="testimonial-stars" aria-label="5 out of 5 stars">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={15} fill="currentColor" stroke="none" />
+            ))}
+          </div>
+          <div className="description">
+            <p className="subtitle-3">"{t.quote}"</p>
+            <div className="clint-info-wrapper">
+              <div className="thumb">
+                <img src={t.avatar} alt={t.name} />
+              </div>
+              <div className="client-info">
+                <h5 className="title">{t.name}</h5>
+                <span className="role">{t.role}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TestimonialsSection() {
+  return (
+    <div className="rbt-splash-testimonial-area position-relative" id="testimonials">
+      <div className="wrapper">
+        <div className="section-title text-center">
+          <span className="subtitle bg-primary-opacity">A FEW WORDS FROM OUR COMMUNITY</span>
+          <h2 className="title">
+            Hear From Educators, Parents & Students About
+            <span className="testimonials-rotator-line">
+              <RotatingHeadline phrases={testimonialRotatingPhrases} gradient />
+            </span>
+          </h2>
+        </div>
+      </div>
+
+      <div className="splash-testimonial-all-wrapper pb--60">
+        {/* Row 1: Right-to-Left */}
+        <div className="scroll-animation-wrapper no-overlay mt--50">
+          <div className="scroll-animation scroll-right-left">
+            {testimonialsRow1.map((t, idx) => (
+              <SingleTestimonialCard key={`r1-a-${idx}`} t={t} gradientClass="bg-theme-gradient-odd" />
+            ))}
+            {testimonialsRow1.map((t, idx) => (
+              <SingleTestimonialCard key={`r1-b-${idx}`} t={t} gradientClass="bg-theme-gradient-odd" />
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Left-to-Right */}
+        <div className="scroll-animation-wrapper no-overlay mt--30">
+          <div className="scroll-animation scroll-left-right">
+            {testimonialsRow2.map((t, idx) => (
+              <SingleTestimonialCard key={`r2-a-${idx}`} t={t} gradientClass="bg-theme-gradient-even" />
+            ))}
+            {testimonialsRow2.map((t, idx) => (
+              <SingleTestimonialCard key={`r2-b-${idx}`} t={t} gradientClass="bg-theme-gradient-even" />
+            ))}
+          </div>
+        </div>
+
+        {/* Row 3: Right-to-Left */}
+        <div className="scroll-animation-wrapper no-overlay mt--50">
+          <div className="scroll-animation scroll-right-left">
+            {testimonialsRow1.map((t, idx) => (
+              <SingleTestimonialCard key={`r3-a-${idx}`} t={t} gradientClass="bg-theme-gradient-odd" />
+            ))}
+            {testimonialsRow1.map((t, idx) => (
+              <SingleTestimonialCard key={`r3-b-${idx}`} t={t} gradientClass="bg-theme-gradient-odd" />
+            ))}
+          </div>
+        </div>
+
+        {/* Semi-Opaque Center Overlay CTA (Exact HiStudy Class Architecture) */}
+        <div className="read-more-review">
+          <div className="section-title text-center mb--30">
+            <h5 className="title color-white">
+              Verified Reviews From <br /> School Stakeholders
+            </h5>
+          </div>
+          <a
+            className="rbt-btn btn-gradient hover-icon-reverse btn-xxl"
+            href="/contact"
+            aria-label="Explore School Case Studies"
+          >
+            <span className="icon-reverse-wrapper">
+              <span className="btn-text"> ⭐ Explore School Case Studies</span>
+              <span className="btn-icon">↗</span>
+              <span className="btn-icon">↗</span>
+            </span>
+          </a>
+          <div className="section-title text-center mt--20">
+            <h5 className="title rbt-title-style-2 color-white">
+              4.95 / 5.0 Rating <br /> based on <strong className="color-white">100+</strong> school stakeholder reviews.
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Page() {
   return (
     <main>
@@ -342,6 +515,7 @@ export default function Page() {
       <Reveal><Platform /></Reveal>
       <Reveal><Apps /></Reveal>
       <Reveal><Partners /></Reveal>
+      <Reveal><TestimonialsSection /></Reveal>
       <Reveal><SchoolMarquee /></Reveal>
       <Reveal>
         <section className="final-cta section" id="contact">
