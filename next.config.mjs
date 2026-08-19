@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Static export - this site has no API routes, middleware, or server
+  // actions, so it builds to plain HTML/CSS/JS and can be served by nginx
+  // instead of running a Node server. See infra/Dockerfile.
+  output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
