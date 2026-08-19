@@ -1,0 +1,7 @@
+# Vendored third-party CSS - not our code, exclude from GitHub's language stats.
+# See the provenance comment at the top of the file itself.
+styles/shadcn-tailwind.css linguist-vendored
+
+# Generated/lockfiles - not representative of the language mix either.
+pnpm-lock.yaml linguist-generated
+next-env.d.ts linguist-generated

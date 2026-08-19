@@ -109,9 +109,9 @@ export function FaqAccordion() {
     <section className="faq section" id="faq">
       <div className="faq-header">
         <div className="section-kicker">FREQUENTLY ASKED QUESTIONS</div>
-        <div className="avatar-cluster" aria-hidden="true">
+        <div className="faq-avatar-cluster" aria-hidden="true">
           {avatars.map((src, i) => (
-            <img key={i} src={src} alt="" className="avatar-cluster-img" />
+            <img key={i} src={src} alt="" className="faq-avatar-cluster-img" />
           ))}
         </div>
         <h2>Everything you need to know <em>about the platform.</em></h2>
