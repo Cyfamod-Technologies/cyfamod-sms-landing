@@ -2,6 +2,7 @@ import { ArrowUpRight, Briefcase, CalendarDays, ClipboardCheck, Database, Gradua
 import { SiteFooter, SiteHeader } from '@/components/site-shell'
 import { RotatingHeadline } from '@/components/rotating-headline'
 import { Reveal } from '@/components/reveal'
+import { FaqAccordion } from '@/components/faq-accordion'
 
 const assets = {
   staffDashboard: '/assets/staff-dashboard.png',
@@ -517,6 +518,7 @@ export default function Page() {
       <Reveal><Partners /></Reveal>
       <Reveal><TestimonialsSection /></Reveal>
       <Reveal><SchoolMarquee /></Reveal>
+      <Reveal><FaqAccordion /></Reveal>
       <Reveal>
         <section className="final-cta section" id="contact">
           <div>
