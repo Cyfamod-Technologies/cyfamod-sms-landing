@@ -16,7 +16,7 @@ export default function MobileAppsPage() {
               <p>Classes, students, attendance, results, and school activity stay connected to the central Cyfamod SMS platform.</p>
               <a className="button app-cta-button" href="/contact">Book a staff app walkthrough <span aria-hidden="true">↗</span></a>
             </div>
-            <img src="/assets/sms-staff-feature-graphic.png" alt="Cyfamod SMS Staff app feature graphic" />
+            <div className="phone-frame"><img src="/assets/sms-staff-feature-graphic.png" alt="Cyfamod SMS Staff app feature graphic" /></div>
           </article>
           <article className="mobile-feature-card mobile-feature-student">
             <div>
@@ -25,7 +25,7 @@ export default function MobileAppsPage() {
               <p>Results, school information, and academic updates stay easy to access from the same connected school system.</p>
               <a className="button app-cta-button" href="/contact">Book a student app walkthrough <span aria-hidden="true">↗</span></a>
             </div>
-            <img src="/assets/sms-student-feature-graphic.png" alt="Cyfamod SMS Student app feature graphic" />
+            <div className="phone-frame"><img src="/assets/sms-student-feature-graphic.png" alt="Cyfamod SMS Student app feature graphic" /></div>
           </article>
         </div>
       </div>
