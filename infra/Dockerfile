@@ -2,7 +2,7 @@
 # This site has no API routes, middleware, or server actions (next.config.mjs
 # sets output: 'export'), so `next build` produces plain static HTML/CSS/JS
 # in out/ - no Node runtime needed in the final image.
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
