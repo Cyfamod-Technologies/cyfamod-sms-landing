@@ -76,3 +76,6 @@ This project is built for performance and rapid UI iteration:
 
 ## 📄 License
 Private and Confidential. © Cyfamod Technologies.
+
+
+<!-- Security scan triggered at 2026-08-31 18:22:12 -->
